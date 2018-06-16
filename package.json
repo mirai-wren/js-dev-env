@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "prestart": "node build_scripts/start_message.js",
+    "prestart": "babel-node build_scripts/start_message.js",
     "start": "npm-run-all --parallel security-check open:src",
-    "open:src": "node build_scripts/server.js",
+    "open:src": "babel-node build_scripts/server.js",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel open:src localtunnel"
@@ -14,6 +14,9 @@
   "author": "Mirai Wren",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "chalk": "^2.4.1",
     "express": "^4.16.3",
     "localtunnel": "^1.9.0",
